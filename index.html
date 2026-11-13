@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>NovaPoint — Nhiệm vụ & đổi quà</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d30;--panel2:#18263c;--line:#263650;--text:#edf4ff;--muted:#91a3bd;--blue:#69a7ff;--cyan:#5ce1d3;--gold:#ffd27a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% -10%,#1d4166 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:auto;padding:0 22px}
+header{border-bottom:1px solid #ffffff12;background:#0b1220cc;backdrop-filter:blur(12px);position:sticky;top:0;z-index:3}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:.2px}.logo{width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#081525;font-weight:900}
+nav{display:flex;gap:22px;color:var(--muted)}nav a:hover{color:white}.navright{display:flex;gap:10px;align-items:center}
+.btn{border:0;border-radius:12px;padding:11px 16px;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#071321;font-weight:800;cursor:pointer}.btn.ghost{background:#1a2940;color:var(--text);border:1px solid var(--line)}
+.hero{padding:58px 0 30px;display:grid;grid-template-columns:1.35fr .85fr;gap:24px;align-items:center}.eyebrow{color:var(--cyan);font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:1.5px}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.07;margin:13px 0 16px;letter-spacing:-1.7px}.lead{color:var(--muted);font-size:17px;max-width:620px}.hero-actions{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}
+.hero-card,.card{background:linear-gradient(160deg,#17263c,#101a2b);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 18px 55px #0003}
+.balance-label{color:var(--muted);font-size:13px}.balance{font-size:35px;font-weight:850;margin:5px 0}.balance small{font-size:14px;color:var(--muted);font-weight:600}.statrow{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:13px;margin-top:15px;color:var(--muted);font-size:13px}
+.section{padding:27px 0}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:17px;gap:12px}.section h2{font-size:24px;margin:0}.sub{color:var(--muted);margin:5px 0 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.task{padding:19px}.tasktop{display:flex;justify-content:space-between;align-items:center}.ico{width:42px;height:42px;border-radius:13px;background:#213a59;display:grid;place-items:center;font-size:20px}.reward{color:var(--gold);font-weight:800}.task h3{margin:15px 0 5px}.task p{margin:0;color:var(--muted);font-size:13px}.task .btn{width:100%;margin-top:17px}
+.reward-card{padding:0;overflow:hidden}.art{height:118px;display:grid;place-items:center;font-size:42px;background:linear-gradient(135deg,#214e73,#1a2d4b)}.reward-body{padding:17px}.reward-body p{color:var(--muted);font-size:13px;margin:5px 0 14px}
+.notice{border:1px solid #39516e;background:#13243a;border-radius:14px;padding:14px 16px;color:#b9cbe3;font-size:13px;margin:16px 0 30px}
+footer{border-top:1px solid #ffffff12;color:var(--muted);padding:25px 0 35px;font-size:13px}
+.modal{position:fixed;inset:0;background:#030812bb;display:none;place-items:center;padding:20px;z-index:5}.modal.show{display:grid}.dialog{max-width:420px;width:100%;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:23px}.dialog h3{margin-top:0}.dialog p{color:var(--muted)}.dialog .btn{width:100%;margin-top:10px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#e8f4ff;color:#091525;padding:11px 16px;border-radius:12px;font-weight:700;display:none;z-index:7}
+@media(max-width:760px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:40px}.grid{grid-template-columns:1fr}.wrap{padding:0 16px}.nav{height:64px}.hero-card{max-width:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+ <a class="brand" href="#"><span class="logo">N</span> NovaPoint</a>
+ <nav><a href="#nhiem-vu">Nhiệm vụ</a><a href="#doi-qua">Đổi quà</a><a href="#huong-dan">Hướng dẫn</a></nav>
+ <div class="navright"><button class="btn ghost" onclick="openInfo()">Đăng nhập</button><button class="btn" onclick="showToast('Đây là bản demo giao diện.')">Tham gia</button></div>
+</div></header>
+<main class="wrap">
+<section class="hero">
+ <div><div class="eyebrow">Nền tảng nhiệm vụ & phần thưởng</div><h1>Làm nhiệm vụ.<br><span style="background:linear-gradient(90deg,#76b4ff,#5ce1d3);background-clip:text;color:transparent">Tích điểm đổi quà.</span></h1>
+ <p class="lead">Một không gian gọn gàng để theo dõi nhiệm vụ, tích lũy điểm và xem các phần quà đang có. Bắt đầu với trải nghiệm đơn giản, minh bạch.</p>
+ <div class="hero-actions"><a class="btn" href="#nhiem-vu">Khám phá nhiệm vụ</a><a class="btn ghost" href="#doi-qua">Xem phần thưởng</a></div></div>
+ <div class="hero-card"><div class="balance-label">SỐ DƯ DEMO CỦA BẠN</div><div class="balance"><span id="points">120</span> <small>NP</small></div><div class="balance-label">Điểm minh họa — chỉ lưu trên trình duyệt này</div><div class="statrow"><span>Nhiệm vụ hoàn thành</span><strong id="done">1</strong></div><div class="statrow"><span>Hạng thành viên</span><strong style="color:var(--cyan)">Tân thủ</strong></div></div>
+</section>
+<div class="notice" id="huong-dan"><strong>Lưu ý:</strong> Đây là bản giao diện mẫu. Điểm và thao tác chỉ mang tính minh họa, chưa có máy chủ, đăng nhập thật, thanh toán hay giao quà tự động. Không nhập mật khẩu, mã OTP hoặc thông tin tài khoản game vào bản demo.</div>
+<section class="section" id="nhiem-vu"><div class="section-head"><div><h2>Nhiệm vụ nổi bật</h2><p class="sub">Chọn nhiệm vụ để xem trạng thái mẫu.</p></div><span class="eyebrow">03 nhiệm vụ</span></div>
+<div class="grid">
+ <article class="card task"><div class="tasktop"><span class="ico">📅</span><span class="reward">+20 NP</span></div><h3>Điểm danh hôm nay</h3><p>Ghi nhận lượt ghé thăm hằng ngày.</p><button class="btn" onclick="completeTask(this,20)">Nhận điểm demo</button></article>
+ <article class="card task"><div class="tasktop"><span class="ico">🧩</span><span class="reward">+35 NP</span></div><h3>Khám phá nền tảng</h3><p>Tìm hiểu các mục và cách hoạt động.</p><button class="btn" onclick="completeTask(this,35)">Nhận điểm demo</button></article>
+ <article class="card task"><div class="tasktop"><span class="ico">⭐</span><span class="reward">+50 NP</span></div><h3>Nhiệm vụ cộng đồng</h3><p>Tham gia hoạt động cộng đồng mẫu.</p><button class="btn" onclick="completeTask(this,50)">Nhận điểm demo</button></article>
+</div></section>
+<section class="section" id="doi-qua"><div class="section-head"><div><h2>Cửa hàng đổi quà</h2><p class="sub">Danh mục phần thưởng minh họa.</p></div><span class="eyebrow">Đổi bằng NP</span></div>
+<div class="grid">
+ <article class="card reward-card"><div class="art">🎮</div><div class="reward-body"><h3>Thẻ quà tặng game</h3><p>Phần thưởng mẫu · 500 NP</p><button class="btn" onclick="redeem(500,'Thẻ quà tặng game')">Đổi thử</button></div></article>
+ <article class="card reward-card"><div class="art">💎</div><div class="reward-body"><h3>Gói vật phẩm game</h3><p>Phần thưởng mẫu · 800 NP</p><button class="btn" onclick="redeem(800,'Gói vật phẩm game')">Đổi thử</button></div></article>
+ <article class="card reward-card"><div class="art">🎁</div><div class="reward-body"><h3>Hộp quà bí ẩn</h3><p>Phần thưởng mẫu · 1.000 NP</p><button class="btn" onclick="redeem(1000,'Hộp quà bí ẩn')">Đổi thử</button></div></article>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 NovaPoint · Bản demo giao diện · Điều khoản và chính sách cần được bổ sung trước khi vận hành thật.</div></footer>
+<div class="modal" id="modal" onclick="if(event.target===this)closeInfo()"><div class="dialog"><h3>Đăng nhập</h3><p>Đăng nhập thật sẽ được tích hợp ở giai đoạn backend. Bản demo không thu thập thông tin cá nhân.</p><button class="btn" onclick="closeInfo()">Đã hiểu</button></div></div>
+<div class="toast" id="toast"></div>
+<script>
+let points=120,done=1;const claimed=new Set();
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display='none',2400)}
+function completeTask(btn,amount){if(btn.dataset.done){showToast('Nhiệm vụ này đã nhận trong bản demo.');return}btn.dataset.done='1';btn.textContent='Đã nhận';btn.classList.add('ghost');points+=amount;done++;document.getElementById('points').textContent=points;document.getElementById('done').textContent=done;showToast('Đã cộng '+amount+' NP demo!')}
+function redeem(cost,name){if(points<cost){showToast('Chưa đủ điểm demo để đổi quà.');return}points-=cost;document.getElementById('points').textContent=points;showToast('Đổi thử '+name+' thành công — không phát sinh giao dịch thật.')}
+function openInfo(){document.getElementById('modal').classList.add('show')}function closeInfo(){document.getElementById('modal').classList.remove('show')}
+</script>
+</body></html>
